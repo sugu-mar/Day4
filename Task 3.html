@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <h1>open console to see outputs</h1>
+    <script>
+      var request = new XMLHttpRequest();
+      request.open("GET", "https://restcountries.com/v2/all", true);
+      request.send();
+      request.onload = function () {
+        let data = JSON.parse(request.response);
+        // console.log(data)
+
+        for (var index in data) {
+          console.log(index);
+          console.log(`country name : ` + data[index].name);
+          console.log(`region : ` + data[index].region);
+          console.log(`subregion : ` + data[index].subregion);
+          console.log(`population : ` + data[index].population);
+          console.log("");
+        }
+      };
+    </script>
+  </body>
+</html>
